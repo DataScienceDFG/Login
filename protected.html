@@ -117,7 +117,7 @@
             function openaccrediation() {
               const userKey = sessionStorage.getItem('userKey');
               if (userKey) {
-                myWindow = window.open('index_acc.html?userKey=' + userKey, '_blank');
+                myWindow4 = window.open('index_acc.html?userKey=' + userKey, '_blank');
               } else {
                 alert('User key not found');
               }
@@ -167,7 +167,7 @@
             function analy() {
               const userKey = sessionStorage.getItem('userKey');
               if (userKey) {
-                myWindow4 = window.open(' https://analyticstester.dfgateway.com/?userKey=' + userKey, '_blank')
+                myWindow = window.open(' https://analyticstester.dfgateway.com/?userKey=' + userKey, '_blank')
               } else {
                 alert('User key not found');
               }
@@ -204,18 +204,16 @@
      
 
         function closeWin() {
-          myWindow6.close(),
-            myWindow.close(),
-            myWindow1.close(),
-            myWindow2.close(),
-            myWindow3.close(),
-            myWindow4.close(),
-            myWindow5.close(),
-            myWindow6.close();
+          for (var i = 0; i < 7; i++) {
+            var winName = "myWindow" + i;
+            if (window[winName]) {
+              window[winName].close();
             }
+          }
+        }
+        
 
         </script>
-     
 
     </body>
     </html>
