@@ -150,6 +150,18 @@
             }
         </script>
 
+        <button  style="font-size: 15px;background-color: coral;font-weight: bold;margin-left: 900px;margin-top: 10px" onclick="gpaCalculator()">GPA Calculator</button>
+        <script>
+          function gpaCalculator() {
+            const userKey = sessionStorage.getItem('userKey');
+            if (userKey) {
+              myWindow6 = window.open('index_gpa.html?userKey=' + userKey, '_blank');
+            } else {
+              alert('User key not found');
+            }
+          }
+        </script>
+
         <button  style="font-size: 15px;background-color: coral;font-weight: bold;margin-left: 900px;margin-top: 10px" onclick= "moe()">MOE POC</button>
         <script>
             function moe() {
