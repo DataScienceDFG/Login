@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>GPA Calculator</title>
+    <link rel='shortcut icon'
+        href='https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/17089548147/fav_icon/UzsiCmhf3A-50MyX9iw_jsDZjXmgbmKicA.png' />
+
+        <link rel="stylesheet" type="text/css" href="style_gpa.css" />
+        <a href="https://sites.google.com/a/dataflowgroup.com/home-page/home" target="_blank">
+            <img src="images\Dataflow.png" style="width:200px;height:70px">
+        </a>
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class='heading'>GPA CALCULATOR</h1>
+            </div>
+        </div>
+        
+		<label style='margin-left: 150px' for="X">Grade: </label>
+<input type="number" id="X" name="X" min="0" value="0">
+
+<label style='margin-left: 20px' for="X_min">Minimum Grade: </label>
+<input type="number" id="X_min" name="X_min" min="0" value="0">
+
+<label style='margin-left: 20px' for="X_max">Maximum Grade: </label>
+<input type="number" id="X_max" name="X_max" min="0" value="0">
+
+<label style='margin-left: 20px' for="gpa">GPA</label>
+<input type="number" id="gpa" name="GPA" min="0" value="0">
+
+<script>
+    var XInput = document.getElementById('X');
+    var XminInput = document.getElementById('X_min');
+    var XmaxInput = document.getElementById('X_max');
+    var gpaInput = document.getElementById('gpa');
+
+    XInput.addEventListener('input', calculateGPA);
+    XminInput.addEventListener('input', calculateGPA);
+    XmaxInput.addEventListener('input', calculateGPA);
+
+	function calculateGPA() {
+        var XValue = parseFloat(XInput.value);
+        var XminValue = parseFloat(XminInput.value);
+        var XmaxValue = parseFloat(XmaxInput.value);
+
+        if (XValue && XminValue && XmaxValue && XValue <= XmaxValue && XminValue <= XmaxValue) {
+            var gpa = 2 * (XValue - XminValue) / (XmaxValue - XminValue) + 2;
+        
+            var roundedGPA = gpa.toFixed(1);
+        
+            gpaInput.value = roundedGPA;
+            warningLabel.textContent = '';
+        } else {
+            gpaInput.value = '';
+            warningLabel.textContent = 'Enter a valid input.';
+        }
+    }
+</script>
+		
+    </div>
+</body>
+</html>
